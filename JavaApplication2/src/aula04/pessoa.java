@@ -9,6 +9,7 @@ public class pessoa {
     public String nome;
     public String cidade;
     public int idade;
+    public boolean aluno;
     
     public void modificarNome(String texto){
         nome = texto;
@@ -32,6 +33,14 @@ public class pessoa {
     
     public int retornarIdade(){
         return idade;
+    }
+    
+    public void modificarAluno(boolean um){
+        aluno = um;
+    }
+    
+    public boolean retornarAluno(){
+        return aluno;
     }
     
     public String imprimir(){
