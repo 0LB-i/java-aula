@@ -10,40 +10,51 @@ public class pessoa {
     public String cidade;
     public int idade;
     public boolean aluno;
-    
-    public void modificarNome(String texto){
-        nome = texto;
+
+    public pessoa() {
     }
-    
-    public String retornarNome(){
+
+    public pessoa(String nome, String cidade, int idade, boolean aluno) {
+        this.nome = nome;
+        this.cidade = cidade;
+        this.idade = idade;
+        this.aluno = aluno;
+    }
+
+    public String getNome() {
         return nome;
     }
-    
-    public void modificarCidade(String local){
-        cidade = local;
+
+    public void setNome(String nome) {
+        this.nome = nome;
     }
-    
-    public String retornarCidade(){
+
+    public String getCidade() {
         return cidade;
-    } 
-    
-    public void modificarIdade(int num){
-        idade = num;
     }
-    
-    public int retornarIdade(){
+
+    public void setCidade(String cidade) {
+        this.cidade = cidade;
+    }
+
+    public int getIdade() {
         return idade;
     }
-    
-    public void modificarAluno(boolean um){
-        aluno = um;
+
+    public void setIdade(int idade) {
+        this.idade = idade;
     }
-    
-    public boolean retornarAluno(){
+
+    public boolean isAluno() {
         return aluno;
     }
+
+    public void setAluno(boolean aluno) {
+        this.aluno = aluno;
+    }
     
-    public String imprimir(){
+    @Override
+    public String toString(){
         return "Cliente: "+nome+", idade: "+idade;
     }
 }
