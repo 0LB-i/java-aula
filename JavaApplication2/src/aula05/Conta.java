@@ -27,7 +27,7 @@ public class Conta {
     }
     
     public boolean sacar(double valor){
-        if(saldoConta>=valor){
+        if((saldoConta+limiteChequeEspecial)>=valor){
         this.saldoConta -= valor;
         return true;}else{
            return false;
@@ -77,5 +77,10 @@ public class Conta {
         this.limiteChequeEspecial = limiteChequeEspecial;
     }
     
+    
+    @Override
+    public String toString() {
+        return this.numConta + " - " + this.nome;
+    }
     
 }
