@@ -28,6 +28,8 @@ public class Tela2 extends javax.swing.JFrame {
         intMes.setText("");
         intAno.setText("");
         }
+    
+    Cadastro usuario1;
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -55,6 +57,7 @@ public class Tela2 extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
+        Sexo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Homem", "Mulher" }));
         Sexo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 SexoActionPerformed(evt);
@@ -158,15 +161,17 @@ public class Tela2 extends javax.swing.JFrame {
     private void btnSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveActionPerformed
         // TODO add your handling code here:
         
-        if(txtUser.getText().equals("")){
-            if(txtEmail.getText().equals("")){
-                if(txtSenha.getText().equals("")){
-                    if((intDia.getText().equals(""))||(intMes.getText().equals(""))||(intAno.getText().equals(""))){
-                        
-                        Cadastro usuario1;
+        if(!txtUser.getText().equals("")){
+            if(!txtEmail.getText().equals("")){
+                if(!txtSenha.getText().equals("")){
+                    if((!intDia.getText().equals(""))||(!intMes.getText().equals(""))||(!intAno.getText().equals(""))){
+                 
                         usuario1 = new Cadastro(txtUser.getText(), txtEmail.getText(), txtSenha.getText(),
                                Integer.parseInt(intDia.getText()), Integer.parseInt(intMes.getText()), Integer.parseInt(intAno.getText()), Sexo.getSelectedItem().toString()
                         );
+                        
+                         CaixaDeDialogo.obterinstancia().exibirMensagem("Nome: "+usuario1.getUser()+" E-mail: "+usuario1.geteMail()+" Senha: "+usuario1.getSenha()+
+                                " Idade: "+usuario1.getDia()+"/"+usuario1.getMes()+"/"+usuario1.getAno()+" Sexo: "+usuario1.getSexo());
                         
                     }else{
                         CaixaDeDialogo.obterinstancia().exibirMensagem("Data em Branco em Branco");
