@@ -5,7 +5,9 @@
  */
 package aula09;
 
+import controladores.UsuarioController;
 import ferramentas.CaixaDeDialogo;
+import ferramentas.Conexao;
 
 /**
  *
@@ -108,14 +110,17 @@ public class Tela1 extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
         
-        if((txtNome.getText()).equals(nome)){
-            if((txtSenha.getText()).equals(senha)){
-                Tela2 Tela1 = new Tela2();
-                Tela1.setVisible(true);
-            }
-            else{
-                CaixaDeDialogo.obterinstancia().exibirMensagem("Senha Errada");
-            }
+        UsuarioController controller = new UsuarioController();
+        
+        String user = txtNome.getText();
+        String pass = txtSenha.getText();
+        
+        boolean existe = controller.login(user, pass);
+        
+        if(existe){
+            CaixaDeDialogo.obterinstancia().exibirMensagem("Usuário Válido");
+            Tela2 Tela1 = new Tela2();
+            Tela1.setVisible(true);
         }
         else{
             CaixaDeDialogo.obterinstancia().exibirMensagem("Usuário Errado");
